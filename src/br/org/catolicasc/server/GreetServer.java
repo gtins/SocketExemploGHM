@@ -14,7 +14,7 @@ public class GreetServer {
     private PrintWriter out;
     private BufferedReader in;
 
-    public void Start(int port) throws IOException {
+    public void start(int port) throws IOException {
         //inicializar atributos
         serverSocket = new ServerSocket(port); // escuta na porta port
         clientSocket = serverSocket.accept();  // espera a conexão
@@ -35,7 +35,7 @@ public class GreetServer {
         }
     }
 
-    public void Stop() {
+    public void stop() {
         try {
             in.close();
             out.close();
@@ -49,11 +49,11 @@ public class GreetServer {
     public static void main(String[] args) {
         GreetServer server = new GreetServer();
         try {
-            server.Start(12345);
+            server.start(12345);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            server.Stop();
+            server.stop();
         }
 
     }
