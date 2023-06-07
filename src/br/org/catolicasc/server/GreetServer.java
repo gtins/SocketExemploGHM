@@ -28,7 +28,7 @@ public class GreetServer {
 
     private void clientHandler() throws IOException {
         String greeting = in.readLine();
-        if("Hello server.".equals(greeting)){
+        if("Hello server".equals(greeting)){
             out.println("Hello client");
         } else {
             out.println("Mensagem Incorreta.");
